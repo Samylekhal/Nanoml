@@ -1,0 +1,25 @@
+Début du projet Nanoml
+
+Objectif :
+Créer un programme pouvant lire un fichier texte avec un certain type de balises similaire au html.
+Ces balises seront interprété afin de créer une page de texte dans le terminal ou dans un fichier txt.
+
+Le projet se séparera en deux parties disctinctes:
+_ La première partie consitera à créer des outils permettant de reconnaitre et distinguer les différentes balises des fichiers textes.
+_ La deuxième partie quant à elle consistera à créer le nouveaux fichier txt à l'aide des balises décripter dans la partie précédante. 
+
+# 26/01/2024
+Création d'outils pouvant s'avéré utile pour la suite du projet, 3 fonctions permettant de récolter les informations suivantes:
+_ le nombre de ligne dans un ficher txt
+_ le nombre de caractères par ligne de texte
+_ Une fonction affichant le nombre de caractère pour chaque ligne
+
+# 29/01/2024
+Création de la structure permettant de générer un arbre qui servira pour la retranscription du fichier Nanoml
+
+# 30-31/01/2024
+Création de fonction d'incrémentations et de supression de l'arbre, des tests doivent encore être fait sur ces fonctions  
+
+# 09/02/2024 
+_ Débuggage de la structure de l'arbre et de ces fonctions
+_ Déplacement des fonction de l'arbre dans un fichier et une bibliothèque à part : arbre.c et arbre.h
