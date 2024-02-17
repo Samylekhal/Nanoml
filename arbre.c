@@ -21,6 +21,7 @@ arbre *Insérerbalisefille(arbre *nanoarbre, char bal, char val)
         nanoarbre = nanoarbre->BalSuivante;
     }
     nanoarbre->BalSuivante = var;
+    return var;
 }
 
 arbre *InsérerbaliseSoeur(arbre *nanoarbre, char bal, char val)
@@ -31,6 +32,7 @@ arbre *InsérerbaliseSoeur(arbre *nanoarbre, char bal, char val)
         nanoarbre = nanoarbre->BALvoisine;
     }
     nanoarbre->BALvoisine = var;
+    return var;
 };
 
 void *SupprimerCadet(arbre *nanoarbre)

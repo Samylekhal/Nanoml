@@ -23,3 +23,6 @@ Création de fonction d'incrémentations et de supression de l'arbre, des tests 
 # 09/02/2024 
 _ Débuggage de la structure de l'arbre et de ces fonctions
 _ Déplacement des fonction de l'arbre dans un fichier et une bibliothèque à part : arbre.c et arbre.h
+
+# 16/02/2024
+_ Création du github et ajout de Maxence dans l'équipe de développement, ce dernier sera en charge de l'analyse syntaxique des fichiers txt. 
