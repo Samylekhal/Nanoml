@@ -78,20 +78,24 @@ int comptecaraparligne(FILE *source, int Nligne)
 
 int main()
 {
-    // Créer un exemple d'arbre
-    arbre *sardoche = InitialiserArbre('A', ' ');
-    arbre *TheKairi = InsérerbaliseSoeur(sardoche, 'B', ' ');
-    arbre *Norman = InsérerbaliseSoeur(TheKairi, 'C', ' ');
+    arbre *A = InitialiserArbre('A', ' ');
+    arbre *B = InsérerbaliseSoeur(A, 'B', ' ');
+    arbre *C = InsérerbaliseSoeur(B, 'C', ' ');
 
-    arbre *Andreas = Insérerbalisefille(sardoche, 'AA', ' ');
-    arbre *Jawad = Insérerbalisefille(TheKairi, 'BB', ' ');
-    arbre *Thavaud = Insérerbalisefille(Norman, 'CC', ' ');
+    arbre *BA = Insérerbalisefille(B, 'F', ' ');
+    arbre *AA = Insérerbalisefille(A, 'D', ' ');
 
-    SupprimerCadet(Norman);
+    arbre *AB = InsérerbaliseSoeur(AA, 'E', ' ');
 
-    // Appeler la fonction pour imprimer l'arbre
-    printArbre(sardoche, 0);
-    // FILE *masource = fopen("source1.txt", "r");
-    // comptecaraligne(masource);
+    arbre *ABA = Insérerbalisefille(AB, 'G', ' ');
+
+    printf("Avant la suppression :\n");
+    printArbre(A);
+
+    SupprimerDescendant(B);
+
+    printf("\n\nAprès la suppression :\n");
+    printArbre(A);
+
     return 0;
 }

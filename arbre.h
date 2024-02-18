@@ -16,7 +16,7 @@ arbre *InitialiserArbre(char bal, char val);
 arbre *Insérerbalisefille(arbre *nanoarbre, char bal, char val);
 arbre *InsérerbaliseSoeur(arbre *nanoarbre, char bal, char val);
 void SupprimerDescendant(arbre *nanoarbre);
-void *SupprimerCadet(arbre *nanoarbre);
-void printArbre(arbre *root, int depth);
+void SupprimerCadet(arbre *nanoarbre);
+void printArbre(arbre *root);
 
 #endif

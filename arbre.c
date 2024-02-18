@@ -35,61 +35,93 @@ arbre *InsérerbaliseSoeur(arbre *nanoarbre, char bal, char val)
     return var;
 };
 
-void *SupprimerCadet(arbre *nanoarbre)
+void SupprimerCadet(arbre *nanoarbre)
 {
+    arbre *precedant = nanoarbre;
+    arbre *recup = nanoarbre;
+    int i = 0;
     while (nanoarbre->BALvoisine != NULL)
     {
         nanoarbre = nanoarbre->BALvoisine;
+        if (i >= 1)
+        {
+            precedant = precedant->BALvoisine;
+        }
+        i++;
     }
     if (nanoarbre->BalSuivante == NULL)
     {
         free(nanoarbre);
+        precedant->BALvoisine = NULL;
     }
     else
     {
         arbre *var = nanoarbre;
         while (nanoarbre->BalSuivante != NULL)
         {
-            SupprimerDescendant(nanoarbre);
-            free(nanoarbre);
-            nanoarbre = var;
+            SupprimerDescendant(nanoarbre->BalSuivante);
+            free(nanoarbre->BalSuivante);
+            nanoarbre->BalSuivante = NULL; // Assurez-vous de supprimer les liens vers les descendants
         }
-    };
-};
+        free(var); // Supprime le dernier nœud
+    }
+    if (recup->BalSuivante == NULL && recup->BALvoisine == NULL)
+    {
+        return;
+    }
+}
+
 void SupprimerDescendant(arbre *nanoarbre)
 {
+    arbre *precedant = nanoarbre;
+    arbre *recup = nanoarbre;
+    int i = 0;
     while (nanoarbre->BalSuivante != NULL)
     {
         nanoarbre = nanoarbre->BalSuivante;
+        if (i >= 1)
+        {
+            precedant = precedant->BalSuivante;
+        }
+        i++;
     }
     if (nanoarbre->BALvoisine == NULL)
     {
         free(nanoarbre);
+        precedant->BalSuivante = NULL;
     }
     else
     {
         arbre *var = nanoarbre;
         while (nanoarbre->BALvoisine != NULL)
         {
-            SupprimerCadet(nanoarbre);
-            free(nanoarbre);
-            nanoarbre = var;
+            SupprimerCadet(nanoarbre->BALvoisine);
+            free(nanoarbre->BALvoisine);
+            nanoarbre->BALvoisine = NULL; // Assurez-vous de supprimer les liens vers les voisins
+        }
+        free(var); // Supprime le dernier nœud
+        if (recup->BalSuivante == NULL && recup->BALvoisine == NULL)
+        {
+            return;
         }
     }
-};
+}
 
-void printArbre(arbre *root, int depth)
+void printArbre(arbre *root)
 {
     // Si le nœud est NULL, retourner
     if (root == NULL)
+    {
+        printf(" NULL");
         return;
-
+    }
     // Afficher la balise du nœud avec la profondeur appropriée
-    for (int i = 0; i < depth; i++)
-        printf("\t"); // 2 espaces par niveau de profondeur
-    printf("%s\n", root->balise);
+    printf(" %c\n", root->balise);
 
     // Appeler récursivement printArbre pour les voisins et les enfants
-    printArbre(root->BALvoisine, depth);
-    printArbre(root->BalSuivante, depth + 1);
+
+    printf("descendant de %c :", root->balise);
+    printArbre(root->BalSuivante);
+    printf("\ncadet de %c :", root->balise);
+    printArbre(root->BALvoisine);
 }
