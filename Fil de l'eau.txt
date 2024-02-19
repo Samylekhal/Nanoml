@@ -26,3 +26,10 @@ _ Déplacement des fonction de l'arbre dans un fichier et une bibliothèque à p
 
 # 16/02/2024
 _ Création du github et ajout de Maxence dans l'équipe de développement, ce dernier sera en charge de l'analyse syntaxique des fichiers txt. 
+
+# 17-18/02/2024
+_ Poursuite du debbuggage de l'arbre : 
+des erreur liées aux pointeurs et à l'initialisation des variables on été constaté. 
+Des modification doivent être faites
+
+

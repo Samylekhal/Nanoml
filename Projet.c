@@ -78,23 +78,26 @@ int comptecaraparligne(FILE *source, int Nligne)
 
 int main()
 {
-    arbre *A = InitialiserArbre('A', ' ');
-    arbre *B = InsérerbaliseSoeur(A, 'B', ' ');
-    arbre *C = InsérerbaliseSoeur(B, 'C', ' ');
+    arbre *A = InitialiserArbre("gdqqq", ' ');
+    /*
+        arbre *B = InsérerbaliseSoeur(A, 'B', ' ');
+        arbre *C = InsérerbaliseSoeur(B, 'C', ' ');
 
-    arbre *BA = Insérerbalisefille(B, 'F', ' ');
-    arbre *AA = Insérerbalisefille(A, 'D', ' ');
+        arbre *BA = Insérerbalisefille(B, 'F', ' ');
+        arbre *AA = Insérerbalisefille(A, 'D', ' ');
 
-    arbre *AB = InsérerbaliseSoeur(AA, 'E', ' ');
+        arbre *AB = InsérerbaliseSoeur(AA, 'E', ' ');
 
-    arbre *ABA = Insérerbalisefille(AB, 'G', ' ');
+        arbre *ABA = Insérerbalisefille(AB, 'G', ' ');
 
-    printf("Avant la suppression :\n");
-    printArbre(A);
+        printf("Avant la suppression :\n");
+        printArbre(A);
 
-    SupprimerDescendant(B);
+        SupprimerDescendant(B);
 
-    printf("\n\nAprès la suppression :\n");
+        printf("\n\nAprès la suppression :\n");
+
+    */
     printArbre(A);
 
     return 0;
