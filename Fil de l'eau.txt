@@ -32,4 +32,7 @@ _ Poursuite du debbuggage de l'arbre :
 des erreur liées aux pointeurs et à l'initialisation des variables on été constaté. 
 Des modification doivent être faites
 
+# 19/02/2024
+_ départ de Maxence du groupe
+_ début de du codage de l'analyse syntaxique
 

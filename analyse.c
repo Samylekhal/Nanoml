@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "arbre.h"
+#include "analyse.h"
 
 void comptecaraligne(FILE *source)
 {
@@ -74,4 +75,47 @@ int comptecaraparligne(FILE *source, int Nligne)
     }
 
     return Nbcara;
+}
+
+void lire_caractere(t_analyse *ceci)
+{
+    ceci->cara = fgetc(ceci->monfichier);
+    printf("%c", ceci->cara);
+}
+
+char debut_ou_fin_balise(t_analyse *ceci)
+{
+    while (ceci->cara == ' ' || ceci->cara == '<' || ceci->cara == '/' || ceci->cara == '>')
+    {
+        lire_caractere(ceci);
+        switch (ceci->cara)
+        {
+        case '<':
+            lire_caractere(ceci);
+            if (ceci->cara == '/')
+            {
+                return "OPEN_F";
+            }
+            else
+            {
+                return "OPEN_O";
+            }
+
+            break;
+        case '>':
+            return "CLOSE";
+            break;
+        default:
+            break;
+        }
+    }
+}
+
+void texte_enrichi(t_analyse *ceci)
+{
+    document(ceci);
+    while (ceci->cara != EOF)
+    {
+        annexes(ceci);
+    }
 }
