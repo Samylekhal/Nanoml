@@ -1,0 +1,10 @@
+{
+  "files.associations": {
+    "*.embeddedhtml": "html",
+    "stdlib.h": "c",
+    "string.h": "c",
+    "crtdefs.h": "c",
+    "corecrt.h": "c",
+    "_mingw.h": "c"
+  }
+}

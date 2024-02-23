@@ -35,3 +35,6 @@ Des modification doivent être faites
 # 19/02/2024
 _ début de du codage de l'analyse syntaxique
 
+# 22-23/02/2024
+_ correction des char de l'arbre les variables balise et valeur et les fonctions de l'arbre ont été modifié avec l'ajout de pointeurs
+la librairie standard string.h a été ajouté afin de mettre à jours les fonctions d'initialisation et corrigé les problèmes de fuite de mémoire.

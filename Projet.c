@@ -5,26 +5,26 @@
 
 int main()
 {
-    arbre *A = InitialiserArbre('A', ' ');
+    arbre *A = InitialiserArbre("document", "dgndgsnh");
 
-    arbre *B = InsérerbaliseSoeur(A, 'B', ' ');
-    arbre *C = InsérerbaliseSoeur(B, 'C', ' ');
+    arbre *B = InsérerbaliseSoeur(A, "annexe", "     ");
+    arbre *C = InsérerbaliseSoeur(B, "annexe", "ssssssssafgz");
 
-    arbre *BA = Insérerbalisefille(B, 'F', ' ');
-    arbre *AA = Insérerbalisefille(A, 'D', ' ');
+    arbre *BA = Insérerbalisefille(B, "item", "qdsgefef");
+    arbre *AA = Insérerbalisefille(A, "titre", "vvqdfdq");
 
-    arbre *AB = InsérerbaliseSoeur(AA, 'E', ' ');
+    arbre *AB = InsérerbaliseSoeur(AA, "item", "qscrggs");
 
-    arbre *ABA = Insérerbalisefille(AB, 'G', ' ');
+    arbre *ABA = Insérerbalisefille(AB, "titre", "qdggzzggz");
 
-    printf("Avant la suppression :\n");
-    printArbre(A);
+    //  printf("Avant la suppression :\n");
+    printArbre(A, 0);
 
-    SupprimerDescendant(B);
+    // SupprimerDescendant(B);
 
-    printf("\n\nAprès la suppression :\n");
+    // printf("\n\nAprès la suppression :\n");
 
-    printArbre(A);
+    // printArbre(A);
 
     // FILE *fichier = fopen("source4.txt", "r");
 

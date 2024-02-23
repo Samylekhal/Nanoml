@@ -3,17 +3,37 @@
 #include "arbre.h"
 #include <string.h>
 
-arbre *InitialiserArbre(char bal, char val)
+arbre *InitialiserArbre(char *bal, char *val)
 {
     arbre *nanoarbre = malloc(sizeof(arbre));
-    nanoarbre->balise = bal;
-    nanoarbre->valeur = val;
+
+    if (nanoarbre == NULL)
+    {
+        return NULL;
+    }
+
+    nanoarbre->balise = malloc(strlen(bal) + 1); // Allouer de la mémoire pour la balise
+    if (nanoarbre->balise == NULL)
+    {
+        free(nanoarbre);
+        return NULL;
+    }
+
+    nanoarbre->valeur = malloc(strlen(val) + 1); // Allouer de la mémoire pour la balise
+    if (nanoarbre->valeur == NULL)
+    {
+        free(nanoarbre);
+        return NULL;
+    }
+    // Copie la valeur de bal dans balise
+    strcpy(nanoarbre->valeur, val);
+    strcpy(nanoarbre->balise, bal);
     nanoarbre->BalSuivante = NULL;
     nanoarbre->BALvoisine = NULL;
     return nanoarbre;
 };
 
-arbre *Insérerbalisefille(arbre *nanoarbre, char bal, char val)
+arbre *Insérerbalisefille(arbre *nanoarbre, char *bal, char *val)
 {
     arbre *var = InitialiserArbre(bal, val);
     while (nanoarbre->BalSuivante != NULL)
@@ -24,7 +44,7 @@ arbre *Insérerbalisefille(arbre *nanoarbre, char bal, char val)
     return var;
 }
 
-arbre *InsérerbaliseSoeur(arbre *nanoarbre, char bal, char val)
+arbre *InsérerbaliseSoeur(arbre *nanoarbre, char *bal, char *val)
 {
     arbre *var = InitialiserArbre(bal, val);
     while (nanoarbre->BALvoisine != NULL)
@@ -107,33 +127,51 @@ void SupprimerDescendant(arbre *nanoarbre)
     }
 }
 
-void printArbre(arbre *root)
+void printArbre(arbre *nanoarbre, int profondeur)
 {
     // Si le nœud est NULL, retourner
-    if (root == NULL)
+    if (nanoarbre == NULL)
     {
         printf(" NULL");
         return;
     }
     // Afficher la balise du nœud avec la profondeur appropriée
-    printf(" %c\n", root->balise);
+    printf(" %s", nanoarbre->balise);
+
+    // for (int i = 0; i < profondeur; i++)
+    // {
+    //     print("/t");
+    // }
 
     // Appeler récursivement printArbre pour les voisins et les enfants
-    if (root->BalSuivante != NULL && root->BALvoisine != NULL)
+    if (nanoarbre->BalSuivante != NULL && nanoarbre->BALvoisine != NULL)
     {
-        printf("descendant de %c :", root->balise);
-        printArbre(root->BalSuivante);
-        printf("\ncadet de %c :", root->balise);
-        printArbre(root->BALvoisine);
+        tab(profondeur);
+        printf("descendant de %s :", nanoarbre->balise);
+        printArbre(nanoarbre->BalSuivante, profondeur + 1);
+
+        tab(profondeur);
+        printf("cadet de %s :", nanoarbre->balise);
+        printArbre(nanoarbre->BALvoisine, profondeur);
     }
-    else if (root->BalSuivante != NULL)
+    else if (nanoarbre->BalSuivante != NULL)
     {
-        printf("descendant de %c :", root->balise);
-        printArbre(root->BalSuivante);
+        tab(profondeur);
+        printf("descendant de %s :", nanoarbre->balise);
+        printArbre(nanoarbre->BalSuivante, profondeur + 1);
     }
-    else if (root->BALvoisine != NULL)
+    else if (nanoarbre->BALvoisine != NULL)
     {
-        printf("\ncadet de %c :", root->balise);
-        printArbre(root->BALvoisine);
+        tab(profondeur);
+        printf("cadet de %s :", nanoarbre->balise);
+        printArbre(nanoarbre->BALvoisine, profondeur);
+    }
+}
+void tab(int truc)
+{
+    printf("\n");
+    for (int i = 0; i < truc; i++)
+    {
+        printf("\t");
     }
 }
