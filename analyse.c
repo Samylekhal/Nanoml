@@ -113,9 +113,9 @@ char debut_ou_fin_balise(t_analyse *ceci)
 
 void texte_enrichi(t_analyse *ceci)
 {
-    document(ceci);
+    // document(ceci);
     while (ceci->cara != EOF)
     {
-        annexes(ceci);
+        //  annexes(ceci);
     }
 }

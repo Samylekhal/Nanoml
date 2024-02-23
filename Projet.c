@@ -4,32 +4,31 @@
 #include "analyse.h"
 
 int main()
-{ /*
-     arbre *A = InitialiserArbre("gdqqq", ' ');
+{
+    arbre *A = InitialiserArbre('A', ' ');
 
-         arbre *B = InsérerbaliseSoeur(A, 'B', ' ');
-         arbre *C = InsérerbaliseSoeur(B, 'C', ' ');
+    arbre *B = InsérerbaliseSoeur(A, 'B', ' ');
+    arbre *C = InsérerbaliseSoeur(B, 'C', ' ');
 
-         arbre *BA = Insérerbalisefille(B, 'F', ' ');
-         arbre *AA = Insérerbalisefille(A, 'D', ' ');
+    arbre *BA = Insérerbalisefille(B, 'F', ' ');
+    arbre *AA = Insérerbalisefille(A, 'D', ' ');
 
-         arbre *AB = InsérerbaliseSoeur(AA, 'E', ' ');
+    arbre *AB = InsérerbaliseSoeur(AA, 'E', ' ');
 
-         arbre *ABA = Insérerbalisefille(AB, 'G', ' ');
+    arbre *ABA = Insérerbalisefille(AB, 'G', ' ');
 
-         printf("Avant la suppression :\n");
-         printArbre(A);
+    printf("Avant la suppression :\n");
+    printArbre(A);
 
-         SupprimerDescendant(B);
+    SupprimerDescendant(B);
 
-         printf("\n\nAprès la suppression :\n");
+    printf("\n\nAprès la suppression :\n");
 
+    printArbre(A);
 
-     printArbre(A);
- */
-    FILE *fichier = fopen("source4.txt", "r");
+    // FILE *fichier = fopen("source4.txt", "r");
 
-    comptecaraligne(fichier);
+    // comptecaraligne(fichier);
 
     return 0;
 }

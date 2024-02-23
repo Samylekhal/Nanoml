@@ -3,11 +3,11 @@
 #include "arbre.h"
 #include <string.h>
 
-arbre *InitialiserArbre(char *bal, char *val)
+arbre *InitialiserArbre(char bal, char val)
 {
     arbre *nanoarbre = malloc(sizeof(arbre));
-    *nanoarbre->balise = bal;
-    *nanoarbre->valeur = val;
+    nanoarbre->balise = bal;
+    nanoarbre->valeur = val;
     nanoarbre->BalSuivante = NULL;
     nanoarbre->BALvoisine = NULL;
     return nanoarbre;
@@ -116,24 +116,24 @@ void printArbre(arbre *root)
         return;
     }
     // Afficher la balise du nœud avec la profondeur appropriée
-    printf(" %s\n", root->balise);
+    printf(" %c\n", root->balise);
 
     // Appeler récursivement printArbre pour les voisins et les enfants
     if (root->BalSuivante != NULL && root->BALvoisine != NULL)
     {
-        printf("descendant de %s :", root->balise);
+        printf("descendant de %c :", root->balise);
         printArbre(root->BalSuivante);
-        printf("\ncadet de %s :", root->balise);
+        printf("\ncadet de %c :", root->balise);
         printArbre(root->BALvoisine);
     }
     else if (root->BalSuivante != NULL)
     {
-        printf("descendant de %s :", root->balise);
+        printf("descendant de %c :", root->balise);
         printArbre(root->BalSuivante);
     }
     else if (root->BALvoisine != NULL)
     {
-        printf("\ncadet de %s :", root->balise);
+        printf("\ncadet de %c :", root->balise);
         printArbre(root->BALvoisine);
     }
 }
