@@ -3,17 +3,20 @@ CFLAGS=-Wall -Wextra -std=c99
 
 all: projet
 
-projet: projet.o arbre.o analyse.o
-	$(CC) -o projet projet.o arbre.o analyse.o
+projet: projet.o arbre.o analyse.o Interpretation.o
+	$(CC) -o projet projet.o arbre.o analyse.o Interpretation.o
 
 projet.o: projet.c 
 	$(CC) -c $(CFLAGS) projet.c
 
-arbre.o: arbre.c arbre.h
+arbre.o: arbre.c 
 	$(CC) -c $(CFLAGS) arbre.c
 
-analyse.o: analyse.c analyse.h
+analyse.o: analyse.c 
 	$(CC) -c $(CFLAGS) analyse.c
+
+Interpretation.o: Interpretation.c 
+	$(CC) -c $(CFLAGS) Interpretation.c
 
 
 clean:

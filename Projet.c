@@ -2,33 +2,27 @@
 #include <stdlib.h>
 #include "arbre.h"
 #include "analyse.h"
+#include "Interpretation.h"
 
 int main()
 {
-    arbre *A = InitialiserArbre("document", "dgndgsnh");
+    arbre *DOC = InitialiserArbre("document", "");
 
-    arbre *B = InsérerbaliseSoeur(A, "annexe", "     ");
-    arbre *C = InsérerbaliseSoeur(B, "annexe", "ssssssssafgz");
+    arbre *section = Insérerbalisefille(DOC, "section", "Bonjour le monde");
+    arbre *annexe = InsérerbaliseSoeur(DOC, "annexe", "Auteur : Weinberg Benjamin Date : 23/01/2024");
 
-    arbre *BA = Insérerbalisefille(B, "item", "qdsgefef");
-    arbre *AA = Insérerbalisefille(A, "titre", "vvqdfdq");
-
-    arbre *AB = InsérerbaliseSoeur(AA, "item", "qscrggs");
-
-    arbre *ABA = Insérerbalisefille(AB, "titre", "qdggzzggz");
-
+    // arbre *C = InsérerbaliseSoeur(B, "annexe", "ssssssssafgz");
+    // arbre *BA = Insérerbalisefille(B, "item", "qdsgefef");
+    // arbre *AA = Insérerbalisefille(A, "titre", "vvqdfdq");
+    // arbre *AB = InsérerbaliseSoeur(AA, "item", "qscrggs");
+    // arbre *ABA = Insérerbalisefille(AB, "titre", "qdggzzggz");
     //  printf("Avant la suppression :\n");
-    printArbre(A, 0);
-
+    // printArbre(A, 0);
     // SupprimerDescendant(B);
-
     // printf("\n\nAprès la suppression :\n");
-
     // printArbre(A);
-
     // FILE *fichier = fopen("source4.txt", "r");
-
     // comptecaraligne(fichier);
-
+    Interpretation(DOC);
     return 0;
 }
