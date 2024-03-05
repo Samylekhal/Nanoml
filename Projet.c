@@ -4,12 +4,17 @@
 #include "analyse.h"
 #include "Interpretation.h"
 
-int main()
+arbre *source1()
 {
     arbre *DOC = InitialiserArbre("document", "");
-
     arbre *section = Insérerbalisefille(DOC, "section", "Bonjour le monde");
     arbre *annexe = InsérerbaliseSoeur(DOC, "annexe", "Auteur : Weinberg Benjamin Date : 23/01/2024");
+    return DOC;
+}
+
+int main()
+{
+    arbre *S1 = source1();
 
     // arbre *C = InsérerbaliseSoeur(B, "annexe", "ssssssssafgz");
     // arbre *BA = Insérerbalisefille(B, "item", "qdsgefef");
@@ -23,6 +28,6 @@ int main()
     // printArbre(A);
     // FILE *fichier = fopen("source4.txt", "r");
     // comptecaraligne(fichier);
-    Interpretation(DOC);
+    Interpretation(S1);
     return 0;
 }

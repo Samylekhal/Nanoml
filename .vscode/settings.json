@@ -6,6 +6,7 @@
     "crtdefs.h": "c",
     "corecrt.h": "c",
     "_mingw.h": "c",
-    "stdio.h": "c"
+    "stdio.h": "c",
+    "analyse.h": "c"
   }
 }
