@@ -44,3 +44,27 @@ _ début de la programmation des fichiers d'interpretation le but est de lire l'
 l'analyse syntaxique étant faites séparémant du coté de Maxence le but pour le moment est de créer des arbres dans l'agencement et les valeurs sont identiques aux fichers
 sources du sujet du projet. Le programme commence avec la fonction interpretation contenant une fonction document et annexe contenant à leurs tours des fonctions
 donnant à la fin un résultat interprété. 
+
+# 04-05/03/2024
+_ un nouveau paramètre à été ajouté dans l'arbre "int deep" indiquant via un nombre la profondeur du noeud dans l'arbre, ce nombre s'avéra très utile pour fournir 
+des informations aux fonctions de mise en page pour l'interpretation.
+_programmation du fichier d'interpretation pour un avancement plus simple et organiser il a été pris comme décision de s'aider des fichiers de balises présents dans le
+sujet du projet. Le but est d'avancer petit à petit en commençant par la source 1 et une fois une que le programme se révéle efficace sur l'un des fichiers on peut 
+passer au prochain et l'interpréter le tout en prenant soins de ne pas affecter les résultat du fichier précédant. Actuellement ce 5 mars à 13h02 le fichier source 1 via
+d'être interprété, donnant le print* suivant:                                       
++--------------------------------------------------+
+|+------------------------------------------------+|         *Toutes les fonctions actuelles affichent un print dans le terminal au lieu de transposer le résultat dans txt.
+|Bonjour le monde                                 ||          Cette méthode à été opté pour une meilleur visibilité des résultats. Les fonctions seront par la suite  
+|+------------------------------------------------+|          modifié pour remplacer les prints par des putc mais une version antérieurs des fonctions sera accessible 
++--------------------------------------------------+          via à un ancien commit github.
++--------------------------------------------------+
+|Auteur : Weinberg Benjamin Date : 23/01/2024      |
++--------------------------------------------------+
+
+différentes fonctions on été créer actuellement:
+Interpretation,document,contenu,section, ect... sont coder d'une manière similaire à celle d'une analyse syntaxique en jouant avec des protypes de fonctions et la récursivité afin
+de coder petit à petit à programme complexe.
+Mais aussi d'autre focntion plus simpliste telles que:
+remplissage, colonnes et printLigne qui se charge de la mise en forme du texte, c'est fonction étaient la source de nombreux problèmes lors du débuggage de la source 1 et le seront
+aussi très probablement à l'avenir au fur et à mesure que les balises se feront plus nombreuses il faudra donc repasser régurlièrement dessus afin de les modifier 
+et obtenir ainsi un code cohérent et capable de s'adapter à toutes les situations. 

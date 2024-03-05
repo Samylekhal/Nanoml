@@ -6,7 +6,7 @@
 arbre *InitialiserArbre(char *bal, char *val)
 {
     arbre *nanoarbre = malloc(sizeof(arbre));
-
+    nanoarbre->deep = 0;
     if (nanoarbre == NULL)
     {
         return NULL;
@@ -36,6 +36,7 @@ arbre *InitialiserArbre(char *bal, char *val)
 arbre *Insérerbalisefille(arbre *nanoarbre, char *bal, char *val)
 {
     arbre *var = InitialiserArbre(bal, val);
+    var->deep = nanoarbre->deep + 1;
     while (nanoarbre->BalSuivante != NULL)
     {
         nanoarbre = nanoarbre->BalSuivante;
@@ -47,6 +48,7 @@ arbre *Insérerbalisefille(arbre *nanoarbre, char *bal, char *val)
 arbre *InsérerbaliseSoeur(arbre *nanoarbre, char *bal, char *val)
 {
     arbre *var = InitialiserArbre(bal, val);
+    var->deep = nanoarbre->deep;
     while (nanoarbre->BALvoisine != NULL)
     {
         nanoarbre = nanoarbre->BALvoisine;

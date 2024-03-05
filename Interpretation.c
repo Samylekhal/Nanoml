@@ -7,17 +7,26 @@
 void Interpretation(arbre *document)
 {
     arbre *suivi = document;
-    Document(document);
-    while (suivi->BALvoisine != NULL)
+    if (strcmp(document->balise, "document") == 0)
     {
-        suivi = suivi->BALvoisine;
-        Annexe(suivi);
+        document = document->BalSuivante;
+        contenu(document);
+        while (suivi->BALvoisine != NULL)
+        {
+            suivi = suivi->BALvoisine;
+            Annexe(suivi);
+        }
+    }
+    else
+    {
+        printf("ERREUR!: la première balise de l'arbre n'est pas un document\n");
+        return;
     }
 }
-void Document(arbre *nanoarbre)
+void contenu(arbre *nanoarbre)
 {
-    printLigne(50);
-    nanoarbre = nanoarbre->BalSuivante;
+    arbre *archive = nanoarbre;
+    printLigne(LONGUEUR, nanoarbre->deep);
     if (strcmp(nanoarbre->balise, "section") == 0)
     {
         section(nanoarbre);
@@ -34,7 +43,7 @@ void Document(arbre *nanoarbre)
     {
         // liste(nanoarbre);
     }
-    printLigne(50);
+    printLigne(LONGUEUR, archive->deep);
 };
 void Annexe(arbre *nanoarbre)
 {
@@ -42,21 +51,65 @@ void Annexe(arbre *nanoarbre)
     {
         return;
     }
-    printLigne(50);
-    printf("|%s |\n", nanoarbre->valeur);
-    printLigne(50);
+    printLigne(LONGUEUR, 0);
+    remplissage(nanoarbre);
+    printf("%s\n", nanoarbre->valeur);
+    printLigne(LONGUEUR, 0);
 }
 void section(arbre *nanoarbre)
 {
-    printf("%s\n", nanoarbre->valeur);
+    printLigne(LONGUEUR - nanoarbre->deep * 2, nanoarbre->deep + 1);
+
+    remplissage(nanoarbre);
+    printf("%s", nanoarbre->valeur);
+    printf("\n");
+    printLigne(LONGUEUR - nanoarbre->deep * 2, nanoarbre->deep + 1);
 }
 
-void printLigne(int nb)
+void printLigne(int nb, int colonne)
 {
+
+    colonnes(colonne);
+
     printf("+");
     for (int i = 0; i < nb; i++)
     {
         printf("-");
     }
-    printf("+\n");
+    printf("+");
+
+    colonnes(colonne);
+    printf("\n");
+}
+
+void remplissage(arbre *nanoarbre)
+{
+    colonnes(nanoarbre->deep + 2);
+    int longueur = strlen(nanoarbre->valeur);
+    int taille = LONGUEUR - (nanoarbre->deep * 2);
+    while (longueur < taille)
+    {
+        strcat(nanoarbre->valeur, " ");
+        longueur = strlen(nanoarbre->valeur);
+    }
+    for (int i = 0; i < nanoarbre->deep; i++)
+    {
+        strcat(nanoarbre->valeur, "|");
+    }
+    strcat(nanoarbre->valeur, "|");
+};
+
+void colonnes(int nb)
+{
+    int j = 0;
+
+    if (nb > 0)
+    {
+        j = 1;
+    }
+
+    for (int i = j; i < nb; i++)
+    {
+        printf("|");
+    }
 }
