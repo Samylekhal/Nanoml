@@ -7,10 +7,6 @@ arbre *InitialiserArbre(char *bal, char *val)
 {
     arbre *nanoarbre = malloc(sizeof(arbre));
     nanoarbre->deep = 0;
-    if (nanoarbre == NULL)
-    {
-        return NULL;
-    }
 
     nanoarbre->balise = malloc(strlen(bal) + 1); // Allouer de la mémoire pour la balise
     if (nanoarbre->balise == NULL)
@@ -30,6 +26,7 @@ arbre *InitialiserArbre(char *bal, char *val)
     strcpy(nanoarbre->balise, bal);
     nanoarbre->BalSuivante = NULL;
     nanoarbre->BALvoisine = NULL;
+    nanoarbre->precedent = NULL;
     return nanoarbre;
 };
 
@@ -37,11 +34,13 @@ arbre *Insérerbalisefille(arbre *nanoarbre, char *bal, char *val)
 {
     arbre *var = InitialiserArbre(bal, val);
     var->deep = nanoarbre->deep + 1;
-    while (nanoarbre->BalSuivante != NULL)
+    if (nanoarbre->BalSuivante != NULL)
     {
-        nanoarbre = nanoarbre->BalSuivante;
+        printf("ERREUR: Ce noeud à déja une soeur !");
+        free(var);
     }
     nanoarbre->BalSuivante = var;
+    var->precedent = nanoarbre;
     return var;
 }
 
@@ -49,11 +48,14 @@ arbre *InsérerbaliseSoeur(arbre *nanoarbre, char *bal, char *val)
 {
     arbre *var = InitialiserArbre(bal, val);
     var->deep = nanoarbre->deep;
-    while (nanoarbre->BALvoisine != NULL)
+
+    if (nanoarbre->BALvoisine != NULL)
     {
-        nanoarbre = nanoarbre->BALvoisine;
+        printf("ERREUR: Ce noeud à déja une soeur !");
+        free(var);
     }
     nanoarbre->BALvoisine = var;
+    var->precedent = nanoarbre;
     return var;
 };
 

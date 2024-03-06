@@ -10,7 +10,8 @@ typedef struct nanoarbre
     char *valeur;                  // Texte si jamais il y'en a dans cette balise
     struct nanoarbre *BALvoisine;  // reidrige vers la balise situer sur le même plan (ex: document redirige vers annexe)
     struct nanoarbre *BalSuivante; // redirige vers la première balise se trouvant à l'intérieur de celle-ci
-    int deep;
+    struct nanoarbre *precedent;
+    int deep; // désigne la profondeur du noeud
 } arbre;
 
 arbre *InitialiserArbre(char *bal, char *val);

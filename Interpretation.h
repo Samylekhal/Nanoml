@@ -7,6 +7,7 @@
 #include "arbre.h"
 
 void Interpretation(arbre *nanoarbre);
+void Document(arbre *nanoarbre);
 void contenu(arbre *nanoarbre);
 void Annexe(arbre *nanoarbre);
 void section(arbre *nanoarbre);

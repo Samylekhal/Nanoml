@@ -68,3 +68,19 @@ Mais aussi d'autre focntion plus simpliste telles que:
 remplissage, colonnes et printLigne qui se charge de la mise en forme du texte, c'est fonction étaient la source de nombreux problèmes lors du débuggage de la source 1 et le seront
 aussi très probablement à l'avenir au fur et à mesure que les balises se feront plus nombreuses il faudra donc repasser régurlièrement dessus afin de les modifier 
 et obtenir ainsi un code cohérent et capable de s'adapter à toutes les situations. 
+
+_ début de l'interpretation de la source 2 en utilisant le code actuel, le résultat est le suivant: 
++--------------------------------------------------+
+|+------------------------------------------------+|
+||                                                ||
+|+------------------------------------------------+|
++--------------------------------------------------+
++--------------------------------------------------+
+|Auteur : Weinberg Benjamin
+Date : 23/01/2024     |
++--------------------------------------------------+
+des modifications sont donc à faire
+
+_ 06/03/2024
+_modification de l'arbre ajout de la structure nanoarbre précédent permettant de revenir au noeud précédant
+_ un problème est présent dans la fonction annexe: elle n'afiche qu'une balise sur deux 

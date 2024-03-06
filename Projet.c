@@ -12,22 +12,28 @@ arbre *source1()
     return DOC;
 }
 
+arbre *source2()
+{
+    arbre *document = InitialiserArbre("document", "");
+    arbre *section = Insérerbalisefille(document, "section", "");
+    arbre *titre = Insérerbalisefille(section, "Titre", "Sujet de projet Nanoml");
+    arbre *annexe = InsérerbaliseSoeur(document, "annexe", "Auteur : Weinberg Benjamin \nDate : 23/01/2024");
+    arbre *annexe2 = InsérerbaliseSoeur(annexe, "annexe", "test1");
+    arbre *annexe3 = InsérerbaliseSoeur(annexe2, "annexe", "test2");
+    arbre *annexe4 = InsérerbaliseSoeur(annexe3, "annexe", "test3");
+    arbre *annexe5 = InsérerbaliseSoeur(annexe4, "annexe", "test4");
+    arbre *annexe6 = InsérerbaliseSoeur(annexe5, "annexe", "test5");
+    arbre *annexe7 = InsérerbaliseSoeur(annexe6, "annexe", "test6");
+    return document;
+}
+
 int main()
 {
-    arbre *S1 = source1();
+    // arbre *S1 = source1();
+    arbre *S2 = source2();
 
-    // arbre *C = InsérerbaliseSoeur(B, "annexe", "ssssssssafgz");
-    // arbre *BA = Insérerbalisefille(B, "item", "qdsgefef");
-    // arbre *AA = Insérerbalisefille(A, "titre", "vvqdfdq");
-    // arbre *AB = InsérerbaliseSoeur(AA, "item", "qscrggs");
-    // arbre *ABA = Insérerbalisefille(AB, "titre", "qdggzzggz");
-    //  printf("Avant la suppression :\n");
-    // printArbre(A, 0);
-    // SupprimerDescendant(B);
-    // printf("\n\nAprès la suppression :\n");
-    // printArbre(A);
     // FILE *fichier = fopen("source4.txt", "r");
     // comptecaraligne(fichier);
-    Interpretation(S1);
+    Interpretation(S2);
     return 0;
 }

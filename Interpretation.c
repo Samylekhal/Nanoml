@@ -6,15 +6,15 @@
 
 void Interpretation(arbre *document)
 {
-    arbre *suivi = document;
+    arbre *suivi = document->BALvoisine;
     if (strcmp(document->balise, "document") == 0)
     {
         document = document->BalSuivante;
-        contenu(document);
+        Document(document);
         while (suivi->BALvoisine != NULL)
         {
-            suivi = suivi->BALvoisine;
             Annexe(suivi);
+            suivi = suivi->BALvoisine;
         }
     }
     else
@@ -25,8 +25,6 @@ void Interpretation(arbre *document)
 }
 void contenu(arbre *nanoarbre)
 {
-    arbre *archive = nanoarbre;
-    printLigne(LONGUEUR, nanoarbre->deep);
     if (strcmp(nanoarbre->balise, "section") == 0)
     {
         section(nanoarbre);
@@ -43,7 +41,6 @@ void contenu(arbre *nanoarbre)
     {
         // liste(nanoarbre);
     }
-    printLigne(LONGUEUR, archive->deep);
 };
 void Annexe(arbre *nanoarbre)
 {
@@ -58,12 +55,24 @@ void Annexe(arbre *nanoarbre)
 }
 void section(arbre *nanoarbre)
 {
+    arbre *archive = nanoarbre;
     printLigne(LONGUEUR - nanoarbre->deep * 2, nanoarbre->deep + 1);
-
+    // parti titre
+    archive = archive->BalSuivante;
+    contenu(archive);
+    // partie texte section
     remplissage(nanoarbre);
     printf("%s", nanoarbre->valeur);
     printf("\n");
+
+    // partie liste
     printLigne(LONGUEUR - nanoarbre->deep * 2, nanoarbre->deep + 1);
+}
+
+void titre(arbre *nanoarbre)
+{
+    printf("# %s", nanoarbre->valeur);
+    nanoarbre = nanoarbre->precedent;
 }
 
 void printLigne(int nb, int colonne)
@@ -113,3 +122,10 @@ void colonnes(int nb)
         printf("|");
     }
 }
+
+void Document(arbre *nanoarbre)
+{
+    printLigne(LONGUEUR, 0);
+    contenu(nanoarbre);
+    printLigne(LONGUEUR, 0);
+};
