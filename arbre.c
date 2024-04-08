@@ -38,6 +38,7 @@ arbre *Insérerbalisefille(arbre *nanoarbre, char *bal, char *val)
     {
         printf("ERREUR: Ce noeud à déja une soeur !");
         free(var);
+        return NULL;
     }
     nanoarbre->BalSuivante = var;
     var->precedent = nanoarbre;
@@ -53,6 +54,7 @@ arbre *InsérerbaliseSoeur(arbre *nanoarbre, char *bal, char *val)
     {
         printf("ERREUR: Ce noeud à déja une soeur !");
         free(var);
+        return NULL;
     }
     nanoarbre->BALvoisine = var;
     var->precedent = nanoarbre;
@@ -140,7 +142,7 @@ void printArbre(arbre *nanoarbre, int profondeur)
         return;
     }
     // Afficher la balise du nœud avec la profondeur appropriée
-    printf(" %s", nanoarbre->balise);
+    printf("%s", nanoarbre->balise);
 
     // for (int i = 0; i < profondeur; i++)
     // {

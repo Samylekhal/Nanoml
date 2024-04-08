@@ -23,6 +23,7 @@ void Interpretation(arbre *document)
         return;
     }
 }
+
 void contenu(arbre *nanoarbre)
 {
     if (strcmp(nanoarbre->balise, "section") == 0)
@@ -41,6 +42,7 @@ void contenu(arbre *nanoarbre)
     {
         // liste(nanoarbre);
     }
+    return;
 };
 void Annexe(arbre *nanoarbre)
 {
@@ -55,17 +57,10 @@ void Annexe(arbre *nanoarbre)
 }
 void section(arbre *nanoarbre)
 {
-    arbre *archive = nanoarbre;
     printLigne(LONGUEUR - nanoarbre->deep * 2, nanoarbre->deep + 1);
-    // parti titre
-    archive = archive->BalSuivante;
-    contenu(archive);
-    // partie texte section
     remplissage(nanoarbre);
     printf("%s", nanoarbre->valeur);
     printf("\n");
-
-    // partie liste
     printLigne(LONGUEUR - nanoarbre->deep * 2, nanoarbre->deep + 1);
 }
 
@@ -77,7 +72,6 @@ void titre(arbre *nanoarbre)
 
 void printLigne(int nb, int colonne)
 {
-
     colonnes(colonne);
 
     printf("+");

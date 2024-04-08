@@ -4,41 +4,41 @@
       <titre> Grammaire </titre>
         inspiree par la forme BN.
         <liste>
-        <item> texte_enrichi ::= document annexes </item>
-        <item> document ::= 'debut_doc' contenu 'fin_doc' </item>
-        <item> annexes ::= { 'debut_annexe' contenu 'fin_annexe' }
-        </item>
-        <item> ... </item>
+            <item> texte_enrichi ::= document annexes </item>
+            <item> document ::= 'debut_doc' contenu 'fin_doc' </item>
+            <item> annexes ::= { 'debut_annexe' contenu 'fin_annexe' }</item>
+            <item> ... </item>
         </liste>
     </section>
     <section>
-    <titre> Demarche du projet </titre>
-    <liste>
-    <item> Ecrire une permiere version de l'analyseur gerant les
-    balises
-    <liste>
-    <item> document </item>
-    <item> annexe </item>
-    <item> section </item>
-    <item> et le texte </item>
-    </liste>
-    </item>
-    <item> Decorer l'analyseur pour que l'arbre N-aire soit creer
-    <liste>
-    <item> Ajouter les parametres necessaire aux
-    fonctions </item>
-    <item> Manipuler les noeuds de l'arbre </item>
-    <item> reprendre le programme pour qu'il soit
-    maintenable/reutilisable </item>
-    <item> reutiliser le travail sur les arbres
-    <liste>
-    <item> utils </item>
-    <item> noeud </item>
-    <item> (arbre_binaire peut aider)
-    </item>
-    </liste>
-    </item>
-    </liste>
+        <titre> Demarche du projet </titre>
+        <liste>
+            <item> Ecrire une permiere version de l'analyseur gerant les balises 
+                <liste>
+                    <item> document </item>
+                    <item> annexe </item>
+                    <item> section </item>
+                    <item> et le texte </item>
+                </liste>
+            </item>
+        <item> Decorer l'analyseur pour que l'arbre N-aire soit creer
+            <liste>
+                <item> Ajouter les parametres necessaire aux
+                fonctions 
+                </item>
+                <item> Manipuler les noeuds de l'arbre 
+                </item>
+                <item> reprendre le programme pour qu'il soit
+                maintenable/reutilisable 
+                </item>
+                <item> reutiliser le travail sur les arbres
+            <liste>
+                <item> utils </item>
+                <item> noeud </item>
+                <item> (arbre_binaire peut aider)</item>
+            </liste>
+        </item>
+            </liste>
     </item>
     <item> Afficher l'arbre N-aire
     <liste>

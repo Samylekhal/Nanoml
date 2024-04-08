@@ -1,9 +1,6 @@
 #ifndef ARBRE_H
 #define ARBRE_H
 
-#include <stdio.h>
-#include <stdlib.h>
-
 typedef struct nanoarbre
 {
     char *balise;                  // indique le type de balise du fichier texte (document,titre,ect...)
